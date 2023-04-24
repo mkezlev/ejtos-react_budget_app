@@ -15,7 +15,7 @@ const Budget = () => {
 		}         
         else {
             if (val>20000){
-                alert("cannot be more than 20K");
+                alert("Total Budget cannot be more than 20K");
                 val=20000;
             }
 			dispatch({
