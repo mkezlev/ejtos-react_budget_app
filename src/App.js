@@ -25,7 +25,8 @@ const App = () => {
                     <div className='col-sm'>
                         <Budget />
                     </div>
-                    
+
+             {/* Add Currency component here under */}        
                     <div className='col-sm'>
                         <Currency/>
                     </div>
