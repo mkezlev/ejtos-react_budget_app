@@ -10,14 +10,9 @@ const AllocationForm = (props) => {
     const [action, setAction] = useState('');
 
     const submitEvent = () => {
-
+        
+      
             
-            
-            if(cost > remaining) {
-                alert("The value cannot exceed remaining funds  £"+remaining);
-                setCost("");
-                return;
-            }
 
         const expense = {
             name: name,
@@ -29,6 +24,12 @@ const AllocationForm = (props) => {
                 payload: expense,
             });
         } else {
+            if(cost > remaining) {
+                alert("The value cannot exceed remaining funds  £"+remaining);
+                setCost("");
+                return;
+            }
+
                 dispatch({
                     type: 'ADD_EXPENSE',
                     payload: expense,
@@ -68,11 +69,11 @@ const AllocationForm = (props) => {
                     
                     <input
                         required='required'
-                        type='number'
+                        type='text'
                         id='cost'
                         value={cost}
                         style={{ marginLeft: '2rem' , size: 10}}
-                        onChange={(event) => setCost(event.target.value)}>
+                        onChange={(event) => setCost(event.target.value.replace(/\D/g, ''))}>
                         </input>
 
                     <button className="btn btn-primary" onClick={submitEvent} style={{ marginLeft: '2rem' }}>
